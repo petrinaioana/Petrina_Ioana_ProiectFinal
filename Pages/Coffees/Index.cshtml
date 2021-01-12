@@ -1,0 +1,48 @@
+﻿@page
+@model Petrina_Ioana_ProiectFinal.Pages.Coffees.IndexModel
+
+@{
+    ViewData["Title"] = "Cups of Coffee";
+}
+
+<h1>Cups of Coffee</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Coffee[0].CoffeeType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Coffee[0].Size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Coffee[0].Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Coffee) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoffeeType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

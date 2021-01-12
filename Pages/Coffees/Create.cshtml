@@ -1,0 +1,44 @@
+﻿@page
+@model Petrina_Ioana_ProiectFinal.Pages.Coffees.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Coffee</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Coffee.CoffeeType" class="control-label"></label>
+                <input asp-for="Coffee.CoffeeType" class="form-control" />
+                <span asp-validation-for="Coffee.CoffeeType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Coffee.Size" class="control-label"></label>
+                <input asp-for="Coffee.Size" class="form-control" />
+                <span asp-validation-for="Coffee.Size" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Coffee.Price" class="control-label"></label>
+                <input asp-for="Coffee.Price" class="form-control" />
+                <span asp-validation-for="Coffee.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
